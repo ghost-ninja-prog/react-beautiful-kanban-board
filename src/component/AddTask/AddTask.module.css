@@ -1,0 +1,49 @@
+.addTask {
+    padding: 20px 5px;
+}
+
+.addForm {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.addInput {
+    height: 30px;
+    font-size: 20px;
+    padding: 2px;
+    border: none;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.addInput:focus-visible {
+    outline: none;
+}
+
+.addBtn {
+    width: 60px;
+    height: 30px;
+    border: none;
+    background-color: #9cc9fd;
+    font-size: 25px;
+    line-height: 25px;
+    color: #fff;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: pointer;
+}
+
+.addText {
+    font-size: 18px;
+    color: #646a7a;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.addTextPlus {
+    font-size: 34px;
+    line-height: 20px;
+    margin-right: 8px;
+}

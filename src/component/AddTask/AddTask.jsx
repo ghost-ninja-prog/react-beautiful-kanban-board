@@ -9,6 +9,7 @@ function AddTask({ boardId, AddTaskFromState }) {
   const [inputMode, setInputMode] = useState(false)
   const addCardInputRef = useRef(null)
 
+
   useEffect(() => {
     addCardInputRef?.current?.focus()
   }, [inputMode])

@@ -11,7 +11,7 @@ body {
 .app-container {
   height: 100vh;
   padding: 10px;
-  background: url('./images/fon.jpg');
+  background: url('./images/fon.jpg') 100%/cover;
   /* background-color: #bcfdae; */
   display: flex;
   justify-content: flex-start;

@@ -1,4 +1,7 @@
 .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #fff;
     font-size: 20px;
     font-weight: 600;
@@ -7,4 +10,20 @@
     padding: 12px 8px;
     margin: 5px 0;
     box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
+}
+
+.btnRemove {
+    background: none no-repeat center center;
+    background-image: url(./images/trash.svg);
+    border: none;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity .3s;
+}
+
+.btnRemove:hover {
+    opacity: .7
 }

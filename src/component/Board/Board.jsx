@@ -6,14 +6,14 @@ import AddTask from '../AddTask/AddTask'
 
 import './Board.css'
 
-function Board({ id, column, AddTaskFromState }) {
+function Board({ id, column, AddTaskFromState, removeTask }) {
     return (
         <div
             className='board'
             key={id}
         >
             <h2 className='board-title'>{column.name}</h2>
-            <Droppable droppableId={id} key={id}>
+            <Droppable droppableId={id.toString()} key={id}>
                 {(provided, snapshot) => {
                     return (
                         <div
@@ -25,7 +25,7 @@ function Board({ id, column, AddTaskFromState }) {
                             // }}
                         >
                             {column.items.map((item, index) => (
-                                <Card key={item.id} item={item} index={index} />
+                                <Card key={item.id} item={item} index={index} removeTask={removeTask} />
                                 // <Draggable key={item.id} draggableId={item.id} index={index}>
                                 //   {(provided, snapshot) => (
                                 //       <div

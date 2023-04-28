@@ -2,9 +2,14 @@ import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 
 import style from './Card.module.css'
+import { useDispatch } from 'react-redux'
+import { removeCard } from '../../store/reducers/cardSlice'
 
 
-function Card({ item, index, removeTask }) {
+function Card({ item, index, removeTask, boardIndex }) {
+
+  const dispatch = useDispatch()
+
   return (
     <Draggable draggableId={item.id} index={index}>
       {(provided, snapshot) => (
@@ -25,7 +30,8 @@ function Card({ item, index, removeTask }) {
             {item.content}
           </span>
           <button 
-            onClick={() => removeTask(item.id)}
+            // onClick={() => removeTask(item.id)}
+            onClick={() => dispatch(removeCard({boardIndex, id: item.id}))}
             className={style.btnRemove}
           />
         </div>

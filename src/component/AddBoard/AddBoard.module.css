@@ -1,5 +1,5 @@
 .addColumnContainer {
-    width: 350px;
+    min-width: 350px;
     background-color: #e3e4e6;
     border-radius: 6px;
     padding: 12px 11px;

@@ -1,13 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 import style from './AddTask.module.css'
+import { useDispatch } from 'react-redux'
+import { addCard } from '../../store/reducers/cardSlice'
 
 
-function AddTask({ boardId, AddTaskFromState }) {
+function AddTask({ boardIndex, AddTaskFromState }) {
 
   const [value, setValue] = useState('')
   const [inputMode, setInputMode] = useState(false)
   const addCardInputRef = useRef(null)
+
+  const dispatch = useDispatch()
 
 
   useEffect(() => {
@@ -17,7 +21,8 @@ function AddTask({ boardId, AddTaskFromState }) {
     function submitHandler(e) {
         e.preventDefault()
         if(value.trim().length === 0) return
-        AddTaskFromState(boardId, value)
+        // AddTaskFromState(boardId, value)
+        dispatch(addCard({boardIndex, content: value}))
         setInputMode(false)
         setValue('')
     }

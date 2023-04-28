@@ -1,5 +1,5 @@
 .board {
-    width: 350px;
+    min-width: 350px;
     border: 1px solid #00000071;
     border-radius: 6px;
     background-color: #e3e4e6;

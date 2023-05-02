@@ -39,11 +39,54 @@ const cardSlice = createSlice({
                 return column
             })
             
+        },
+        addColumn: (state, action) => {
+            const newColumn = {
+                name: action.payload,
+                items: []
+            }
+            return state = [...state, newColumn]
+        },
+        onDragEnd: (state, action) => {
+            if (!action.payload.destination) return;
+            const { source, destination } = action.payload;
+          
+            if (source.droppableId !== destination.droppableId) {
+                const sourceColumn = state[source.droppableId];
+                const destColumn = state[destination.droppableId];
+                const sourceItems = [...sourceColumn.items];
+                const destItems = [...destColumn.items];
+                const [removed] = sourceItems.splice(source.index, 1);
+                destItems.splice(destination.index, 0, removed);
+          
+                state = state.map((column, index) => {
+                    if(index === Number(source.droppableId)) {
+                        column.items = sourceItems
+                        return column
+                    } else if (index === Number(destination.droppableId)) {
+                        column.items = destItems
+                        return column
+                    }
+                    return column
+                })
+            } else {
+                const column = state[source.droppableId];
+                const copiedItems = [...column.items];
+                const [removed] = copiedItems.splice(source.index, 1);
+                copiedItems.splice(destination.index, 0, removed);
+                state = state.map((column, index) => {
+                    if(index === Number(source.droppableId)) {
+                        column.items = copiedItems
+                        return column
+                    }
+                    return column
+                })
+            }
         }
         
     }
 })
 
 
-export const { addCard, removeCard } = cardSlice.actions
+export const { addCard, removeCard, addColumn, onDragEnd } = cardSlice.actions
 export const cardReducer = cardSlice.reducer

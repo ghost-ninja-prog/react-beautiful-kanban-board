@@ -6,7 +6,7 @@ import AddTask from '../AddTask/AddTask'
 
 import './Board.css'
 
-function Board({ boardIndex, column, AddTaskFromState, removeTask }) {
+function Board({ boardIndex, column}) {
     return (
         <div
             className='board'
@@ -25,7 +25,7 @@ function Board({ boardIndex, column, AddTaskFromState, removeTask }) {
                             // }}
                         >
                             {column.items.map((item, index) => (
-                                <Card key={item.id} item={item} index={index} boardIndex={boardIndex} removeTask={removeTask} />
+                                <Card key={item.id} item={item} index={index} boardIndex={boardIndex} />
                                 // <Draggable key={item.id} draggableId={item.id} index={index}>
                                 //   {(provided, snapshot) => (
                                 //       <div
@@ -53,7 +53,7 @@ function Board({ boardIndex, column, AddTaskFromState, removeTask }) {
                 }}
 
             </Droppable>
-            <AddTask boardIndex={boardIndex} AddTaskFromState={AddTaskFromState} />
+            <AddTask boardIndex={boardIndex} />
         </div>
     )
 }

@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 
 import style from './AddBoard.module.css'
+import { useDispatch } from 'react-redux'
+import { addColumn } from '../../store/reducers/cardSlice'
 
-function AddBoard({ addColumn }) {
+function AddBoard() {
+
+	const dispatch = useDispatch()
 
 	const [inputMode, setInputMode] = useState(false)
 	const [inputValue, setInputValue] = useState('')
 
 	const handlerSubmit = (e) => {
 		e.preventDefault()
-		console.log(inputValue)
-		addColumn(inputValue)
+		dispatch(addColumn(inputValue))
 		setInputValue('')
 		setInputMode(false)
 	}
